@@ -1,0 +1,27 @@
+    <!DOCTYPE html>
+    <head> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></head>
+    <table class="table table-striped">                     
+<div class="table responsive">
+  <thead>
+    <tr>
+      <th>Klasse</th>
+      <th>Stunde</th>
+      <th>Fach</th>
+      <th>Lehrer</th>
+      <th>Grund</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {{#each data}}
+      <th scope="row">{{this.class}}</th>
+      <td>{{this.hour}}</td>
+      <td>{{this.subject}}</td>
+      <td>{{this.teacher_id}}</td>
+        <td>{{this.reason}}</td>
+    </tr>
+        {{/each}}
+
+  </tbody>
+        </div>
+   </table>
