@@ -9,17 +9,19 @@ var connection = mysql.createConnection({
     database: process.env.MYSQL_DATABASE
   });
   connection.connect()
-  //var jsonParser = bodyParser.json()
   connection.query("USE vertretungsplan");
 
 var result;
 /* GET /vertretungsplan listing. */
 router.get('/', function(req, res, next) {
-    connection.query("SELECT * FROM classes", function (err, rowsClass, fields) {
-      connection.query("SELECT T.teacher_name FROM teacher AS C INNER JOIN classes AS c ON C.teacher_id = T.id WHERE C.teacher_id = 123", function (err, rowsTeacher, fields){
-        console.log(fields)
-        res.render('vertretungsplan', {data: rowsClass, dataTeacher: rowsTeacher})
-      })   
+    connection.query(`SELECT
+    c.*, t.teacher_name
+    FROM classes AS c
+    INNER JOIN teacher as t
+    ON c.teacher_id=t.id;
+    `, function (err, rows, fields) {
+      res.render('vertretungsplan', {data: rows})
+      
     });
   });
 
