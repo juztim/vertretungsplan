@@ -10,13 +10,14 @@ hour TINYINT NOT NULL,
 classroom varchar(255) NOT NULL,
 subject varchar(255) NOT NULL,
 reason varchar(255),
-teacher_id INT UNSIGNED NOT NULL,
-date varchar(255) NOT NULL
+teacher_id INT UNSIGNED NOT NULL
 );
 
 drop table classes;
 
 INSERT INTO teacher (teacher_name, teacher_shortname) VALUES ("Fr. Rudolph", "rud"), ("Fr. Loebbert", "loeb"), ("Fr. Tetzlaff", "tz"), ("Fr. Peter", "pet"), ("Fr. Störmer", "sto"), ("Hr. Engels", "eng");
+INSERT INTO classes (hour,classroom, subject, reason, teacher_id) VALUES (?,?,?,?,?), [classroom, ];
+
 
 DELETE FROM teacher WHERE id IN (3, 4);
 

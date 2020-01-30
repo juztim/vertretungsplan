@@ -38,11 +38,13 @@ router.post('/', function(req, res, next){
     var subject = req.body.subject;
     var room = req.body.room;
     var reason = req.body.reason;
-    var today = new Date()
-    var day = today.getDay();
-    var month = (today.getMonth()+1);
-    var year = today.getFullYear();
-    var date = (`${day} ${month} ${year}`)
+
+    connection.query(`INSERT INTO classes (hour,classroom, subject, reason, teacher_id) VALUES(${hourName},${className},${subject},${reason},${teacher});`, function (err, rows, fields) {
+      if (err) console.log(error)
+      result = rows;
+      res.redirect('/import');
+      
+    })
     
     
 })
