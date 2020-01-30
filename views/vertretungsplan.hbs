@@ -9,16 +9,20 @@
       <th>Fach</th>
       <th>Lehrer</th>
       <th>Grund</th>
+      <th>Datum</th>
     </tr>
   </thead>
   <tbody>
+      {{#each data}}
     <tr>
-        {{#each data}}
+      
       <th scope="row">{{this.class}}</th>
       <td>{{this.hour}}</td>
       <td>{{this.subject}}</td>
       <td>{{this.teacher_name}}</td>
         <td>{{this.reason}}</td>
+        <td>{{this.td}}</td>
+        <td>DELETE</td>
     </tr>
         {{/each}}
 

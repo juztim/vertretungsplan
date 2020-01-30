@@ -14,7 +14,6 @@ var connection = mysql.createConnection({
   database: process.env.MYSQL_DATABASE
 });
 connection.connect()
-//var jsonParser = bodyParser.json()
 connection.query("USE vertretungsplan");
 
 /* GET home page. */
@@ -34,7 +33,7 @@ router.post('/', function(req, res, next){
     var room = req.body.room;
     var reason = req.body.reason;
 
-    connection.query(`INSERT INTO classes (class, hour, classroom, subject, reason, teacher_id) VALUES("${className}", "${hourName}", "${room}", "${subject}", "${reason}", ${teacher});`, function (err, rows, fields) {
+    connection.query(`INSERT INTO classes (class, hour, classroom, subject, reason, teacher_id, td) VALUES("${className}", "${hourName}", "${room}", "${subject}", "${reason}", ${teacher}, now());`, function (err, rows, fields) {
       if (err) console.log(err)
       result = rows;
       res.redirect('/import');
