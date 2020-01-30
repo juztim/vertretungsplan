@@ -12,12 +12,15 @@ var connection = mysql.createConnection({
   //var jsonParser = bodyParser.json()
   connection.query("USE vertretungsplan");
 
-
-/* GET users listing. */
+var result;
+/* GET /vertretungsplan listing. */
 router.get('/', function(req, res, next) {
-    connection.query("SELECT * FROM classes", function (err, rows, fields) {
-      connection.query("SELECT * FROM teacher JOIN classes ON teacher.id")
-    })
+    connection.query("SELECT * FROM classes", function (err, rowsClass, fields) {
+      connection.query("SELECT T.teacher_name FROM teacher AS C INNER JOIN classes AS c ON C.teacher_id = T.id WHERE C.teacher_id = 123", function (err, rowsTeacher, fields){
+        console.log(fields)
+        res.render('vertretungsplan', {data: rowsClass, dataTeacher: rowsTeacher})
+      })   
+    });
   });
 
 module.exports = router;
