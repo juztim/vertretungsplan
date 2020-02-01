@@ -7,6 +7,7 @@
       <th>Klasse</th>
       <th>Stunde</th>
       <th>Fach</th>
+      <th>Raum</th>
       <th>Lehrer</th>
       <th>Grund</th>
       <th>Datum</th>
@@ -14,14 +15,14 @@
   </thead>
   <tbody>
       {{#each data}}
-    <tr>
-      
+    <tr>    
       <th scope="row">{{this.class}}</th>
       <td>{{this.hour}}</td>
       <td>{{this.subject}}</td>
+      <td>{{this.classroom}}</td>
       <td>{{this.teacher_name}}</td>
         <td>{{this.reason}}</td>
-        <td>{{this.td}}</td>
+        <td>{{formatDate date day="numeric" month="long" year="numeric"}}</td>
         <td>DELETE</td>
     </tr>
         {{/each}}
@@ -29,3 +30,6 @@
   </tbody>
         </div>
    </table>
+
+
+   

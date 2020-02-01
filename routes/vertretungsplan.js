@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+var HandlebarsIntl = require('handlebars-intl');
+var Handlebars     = require('handlebars');
 
 var connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -10,6 +12,7 @@ var connection = mysql.createConnection({
   });
   connection.connect()
   connection.query("USE vertretungsplan");
+  HandlebarsIntl.registerWith(Handlebars);
 
 var result;
 /* GET /vertretungsplan listing. */
@@ -20,8 +23,8 @@ router.get('/', function(req, res, next) {
     INNER JOIN teacher as t
     ON c.teacher_id=t.id;
     `, function (err, rows, fields) {
-      res.render('vertretungsplan', {data: rows})
-      
+      console.log(rows)
+      res.render('vertretungsplan', {data: rows, date: new Date()})
     });
   });
 
