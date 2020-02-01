@@ -37,6 +37,7 @@ router.post('/', function(req, res, next){
       if (err) console.log(err)
       result = rows;
       res.redirect('/import');
+      //test for github
     })
     
     
