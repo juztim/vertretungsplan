@@ -6,11 +6,11 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "express": "~4.16.1",
+    "express": "~4.21.0",
     "handlebars-intl": "^1.1.2",
     "hbs": "~4.0.4",
     "http-errors": "^1.7.3",
